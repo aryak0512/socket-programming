@@ -1,40 +1,31 @@
 package socket;
+
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import utils.LoggerUtils;
 
 public class Server {
 
 	public static void main(String[] args) throws IOException {
-		
+
 		ServerSocket serverSocket = new ServerSocket(8978);
 		LoggerUtils.log("Server is listening...");
+		ProductService ps = new ProductService();
+		ExecutorService executorService = Executors.newFixedThreadPool(3);
 
-		// waiting to accept connection request from client
-		Socket socket = serverSocket.accept();
-		LoggerUtils.log("Client has arrived. " + socket.getInetAddress() + ":" +socket.getPort());
-			
-		// for reading input from client
-		InputStream in = socket.getInputStream();
+		while (true) {
 
-		// for sending response to client
-		OutputStream out = socket.getOutputStream();
+			LoggerUtils.log("Waiting for client ...");
+			// waiting to accept connection request from client
+			Socket socket = serverSocket.accept();
+			executorService.execute(new ServerThread(socket));
 
-		// reading input sent by client
-		byte[] input = new byte[1024];
-		in.read(input);
-		String msg = new String(input);
-		LoggerUtils.log("Message from client : " + msg);
+		}
 
-		// sending output back to client
-		out.write("hi from server".getBytes());
-
-		socket.close();
-		serverSocket.close();
 	}
 
 }
