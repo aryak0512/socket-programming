@@ -3,6 +3,7 @@
 
 This is a pure Java implementation of a multithreaded web server written by me from scratch which can serve 10 concurrent requests. This project uses the socket programming Java API from the java.net package
 
+![Index page](https://github.com/aryak0512/socket-programming/assets/57310005/edf7a571-1de9-481d-93b1-11fb1cfd538b)
 
 ## Authors
 
