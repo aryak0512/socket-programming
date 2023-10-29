@@ -1,5 +1,6 @@
 package socket;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -14,6 +15,9 @@ public class Server {
 
 		// server will listen to client requests on this port
 		ServerSocket serverSocket = new ServerSocket(7200);
+		
+		printBanner();
+		
 		LoggerUtils.log("Server is listening...");
 		
 		// populating product hashmap
@@ -31,6 +35,17 @@ public class Server {
 			executorService.execute(new ServerThread(socket));
 
 		}
+
+	}
+
+	private static void printBanner() throws IOException {
+
+		FileReader fr = new FileReader("banner.txt");
+		int i;
+		while ((i = fr.read()) != -1)
+			System.out.print((char) i);
+		fr.close();
+		System.out.println();
 
 	}
 
