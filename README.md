@@ -3,6 +3,8 @@
 
 This is a pure Java implementation of a multithreaded web server written by me from scratch which can serve 10 concurrent requests. This project uses the socket programming Java API from the java.net package
 
+Index/ Test page :
+
 ![Index page](https://github.com/aryak0512/socket-programming/assets/57310005/edf7a571-1de9-481d-93b1-11fb1cfd538b)
 
 ## Authors
@@ -26,13 +28,12 @@ Go to the project directory
 
 Install JDK 11
 
-Start the server : java -jar webserver.jar. Server is ready to accept requests on port 7200.
-
+Start the server. Right click -> Server.java -> Run as Java Application. Server is ready to accept requests on port 7200.
 
 
 ## Deployment
 
-To deploy this project run
+To build this project run
 
 ```bash
   java -jar webserver.jar
@@ -41,15 +42,6 @@ To deploy this project run
 
 ## Demo
 
-Watch this video :
-
-
 https://github.com/aryak0512/socket-programming/assets/57310005/75916e0b-bf57-42f8-8a42-6ead2c697315
-
-
-
-## Running Tests
-
-Load testing results :
 
 
