@@ -18,7 +18,7 @@ public class Server {
 		
 		printBanner();
 		
-		LoggerUtils.log("Server is listening...");
+		LoggerUtils.log("Server is ready to accept requests on port 7200...");
 		
 		// populating product hashmap
 		ProductService ps = new ProductService();
